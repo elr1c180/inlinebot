@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Создание новой статьи {% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1>Добавление новой записи</h1>
+    <hr>
+    <div class="d-flex justify-content-center">
+      <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="image">Изображение</label>
+          <input type="file" class="form-control" id="image" name="image" multiple>
+        </div>
+        <div class="mb-3">
+          <label for="tags">Теги</label>
+          <input type="text" class="form-control" id="tags" name="tags" required>
+        </div>
+        <div class="mb-3">
+          <label for="title">Заголовок</label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+          <label for="content">Основной текст статьи</label>
+          <textarea class="form-control" id="content" name="content" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

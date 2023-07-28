@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Обзор всех статей
+{% endblock %}
+
+{% block content %}
+<style>
+  .col-md-4 {
+    margin-bottom: 10px;
+  }
+</style>
+<div class="container">
+    <h1>Все статьи</h1>
+    <hr>
+    <div class="row">
+        {% for article in articles %}
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.tags }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+    <div class="col">
+      <a href="/create/"><button class="btn btn-primary">Создать статью</button></a>
+  </div>
+  </div>
+{% endblock %}
